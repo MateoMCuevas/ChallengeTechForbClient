@@ -1,0 +1,23 @@
+<div class="dashboard">
+<div class="dashboard-header">
+        <img class="menu" *ngIf="!isScreenWidthGreaterThan500" (click)="toggleSidebar()" src="assets\MenuIcon.svg" alt="Icono SVG">
+    <h1 class="title">Monitoreo global</h1>
+    <div class="header-right">
+        <div class="icons">
+            <img class="languageIcon" src="assets\TopBarIcons\LanguageIcon.svg" alt="Icono SVG">
+            <img class="settings" src="assets\TopBarIcons\SettingsIcon.svg" alt="Icono SVG">
+            <img class="notificationIcon" src="assets\TopBarIcons\NotificationIcon.svg" alt="Icono SVG">
+        </div>
+        <span class="username">{{user.lastName}} {{ user.name }} </span>
+    </div>
+</div>
+<div class="line"></div>
+
+<div class="dashboard-content">
+    <div class="title-for-responsive">Resumen</div>
+    <div class="dashboard-content">
+        <app-readings></app-readings>
+        <app-plants></app-plants>
+        <app-characteristics></app-characteristics>
+    </div>
+</div>

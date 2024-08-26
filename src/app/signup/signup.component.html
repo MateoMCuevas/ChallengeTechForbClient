@@ -1,0 +1,82 @@
+<div class="signup-container">
+    <div class="left-side">
+        <img src="assets\LoginImage.svg" alt="BackgroundImage" class="background-img">
+        <div class="overlay-texts">
+            <h1>Registrarse</h1>
+            <h4>Nos alegra tenerte de vuelta y estamos listos para atender tus necesidades.
+                Inicia sesión y continúa aprovechando al máximo nuestra plataforma.</h4>
+            <div class="info-texts">
+                <p>Monitoreo integral</p>
+                <small>Administra, monitorea mutiples plantas de forma centralizada</small>
+            </div>
+            <div class="info-texts">
+                <p>Notificaciones en tiempo real</p>
+                <small>Recibi notificaciones en tiempo real sobre las mediciones</small>
+            </div>
+        </div>
+    </div>
+    <div class="right-side">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()" class="signup-form">
+            <h1>Portal de monitoreo</h1>
+            <h2>Registrarse</h2>
+            <div class="form-group">
+                <h2>Nombre</h2>
+                <input class="form-control" formControlName="firstName" type="text" placeholder="Nombre"
+                    [ngClass]="{'is-invalid': signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched}">
+                <div *ngIf="signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched">
+                    El nombre es necesario
+                </div>
+                <h2>Apellido</h2>
+                <input class="form-control" formControlName="lastName" type="text" placeholder="Apellido"
+                    [ngClass]="{'is-invalid': signupForm.get('lastName')?.invalid && signupForm.get('lastName')?.touched}">
+                <div *ngIf="signupForm.get('lastName')?.invalid && signupForm.get('lastName')?.touched">
+                    El apellido es necesario
+                </div>
+                <h2>Email</h2>
+                <input class="form-control" formControlName="email" type="text" placeholder="Email"
+                    [ngClass]="{'is-invalid': signupForm.get('email')?.invalid && signupForm.get('email')?.touched}">
+                    <div *ngIf="signupForm.get('email')?.touched">
+                        <div *ngIf="signupForm.get('email')?.errors?.['required']">
+                          El email es necesario
+                        </div>
+                        <div *ngIf="signupForm.get('email')?.errors?.['email']">
+                          El formato del email no es válido
+                        </div>
+                      </div>
+                <h2>Contraseña</h2>
+                <input class="form-control" formControlName="password" type="password" placeholder="Contraseña"
+                    [ngClass]="{'is-invalid': signupForm.get('password')?.invalid && signupForm.get('password')?.touched}">
+                    <div *ngIf="signupForm.get('password')?.touched">
+                        <div *ngIf="signupForm.get('password')?.errors?.['required']">
+                          La contraseña es necesaria
+                        </div>
+                        <div *ngIf="signupForm.get('password')?.errors?.['required']">
+                          La contraseña debe tener como minimo 6 digitos
+                        </div>
+                      </div>
+                <h2>Repetir Contraseña</h2>
+                <input class="form-control" formControlName="confirmPassword" type="password"
+                    placeholder="Repetir Contraseña"
+                    [ngClass]="{'is-invalid': signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched || passwordMismatch}">
+                <div *ngIf="passwordMismatch">
+                    Las contraseñas no coinciden
+                </div>
+            </div>
+            <div class="form-footer">
+                <p>Ya tienes cuenta?
+                    <a (click)="navigateToLogin()" class="login-link">Inicia sesión aqui</a>
+                  </p>
+              </div>
+              <button type="submit" class="btn btn-primary">Registrarse</button>
+            <p class="reCAPTCHA">
+                Protegido por reCAPTCHA y sujeto a la
+                <a href="https://www.google.com/intl/es/policies/privacy/" target="_blank" rel="noopener noreferrer">
+                    Política de Privacidad
+                </a> y
+                <a href="https://www.google.com/intl/es/policies/terms/" target="_blank" rel="noopener noreferrer">
+                    Condiciones
+                </a>.
+            </p>
+        </form>
+    </div>
+</div>

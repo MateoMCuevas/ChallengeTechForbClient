@@ -1,0 +1,38 @@
+<div class="modal-backdrop" *ngIf="showModal">
+    <div class="modal-content">
+        <h3>Editar planta</h3>
+        <form [formGroup]="plantForm">
+            <div class="form">
+                <div class="form-group">
+                    <h4>Nombre planta</h4>
+                    <input formControlName="name"/>
+                </div>
+                <div class="form-group">
+                    <h4>País</h4>
+                    <input formControlName="country" >
+                </div>
+                <div class="form-group">
+                    <h4>Lecturas</h4>
+                    <input formControlName="okCount" placeholder="Ingrese" />
+                </div>
+                <div class="form-group">
+                    <h4>Lecturas</h4>
+                    <input [value]="plantForm.get('okCount')?.value" placeholder="Ingrese" disabled/>
+                </div>
+                <div class="form-group">
+                    <h4>Alertas medias</h4>
+                    <input formControlName="mediumAlertCount" placeholder="Ingrese">
+                </div>
+                
+                <div class="form-group">
+                    <h4>Alertas rojas</h4>
+                    <input formControlName="redAlertCount" placeholder="Ingrese" />
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="cancel-btn" (click)="closeModal()">Cancelar</button>
+                <button class="create-btn" (click)="updatePlant()">Crear</button>
+            </div>
+        </form>
+    </div>
+</div>

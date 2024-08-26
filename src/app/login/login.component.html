@@ -1,0 +1,54 @@
+<div class="login-container">
+  <div class="left-side">
+    <img src="assets\LoginImage.svg" alt="BackgroundImage" class="background-img">
+    <div class="overlay-texts">
+      <h1>Iniciar sesión</h1>
+      <h4>Nos alegra tenerte de vuelta y estamos listos para atender tus necesidades.
+        Inicia sesión y continúa aprovechando al máximo nuestra plataforma.</h4>
+      <div class="info-texts">
+        <p>Monitoreo integral</p>
+        <small>Administra, monitorea mutiples plantas de forma centralizada</small>
+      </div>
+      <div class="info-texts">
+        <p>Notificaciones en tiempo real</p>
+        <small>Recibi notificaciones en tiempo real sobre las mediciones</small>
+      </div>
+    </div>
+  </div>
+  <div class="right-side">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
+      <h1>Portal de monitoreo</h1>
+      <h2>Iniciar sesión</h2>
+      <div class="form-group">
+        <h2>Email</h2>
+        <input class="form-control" formControlName="email" type="text" placeholder="Email"
+          [ngClass]="{'is-invalid': loginForm.get('email')?.invalid && loginForm.get('email')?.touched}">
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          El email es necesario
+        </div>
+        <h2>Contraseña</h2>
+        <input class="form-control" formControlName="password" type="password" placeholder="Password"
+          [ngClass]="{'is-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}">
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          La contrasena es necesaria
+        </div>
+      </div>
+      <div class="form-footer">
+        <p class="forgot-password">¿Olvidaste tu contraseña?</p>
+        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+      </div>
+      <p>No tienes cuenta?
+        <a (click)="navigateToSignup()" class="signup-link">Registrate aqui</a>
+      </p>
+      <p class="reCAPTCHA">
+        Protegido por reCAPTCHA y sujeto a la 
+        <a href="https://www.google.com/intl/es/policies/privacy/" target="_blank" rel="noopener noreferrer">
+          Política de Privacidad
+        </a> y 
+        <a href="https://www.google.com/intl/es/policies/terms/" target="_blank" rel="noopener noreferrer">
+          Condiciones
+        </a>.
+      </p>
+    </form>
+  </div>
+</div>

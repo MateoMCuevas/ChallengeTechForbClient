@@ -1,0 +1,11 @@
+<div class="sidebar" *ngIf="isAuthenticated">
+  <img (click)="toggleSidebar()" class="logo" src="assets\SideBarIcons\LogoIcon.svg" alt="Icono SVG">
+
+  <div class="menu">
+    <button [routerLink]="['/dashboard']"><img src="assets\SideBarIcons\DashboardIcon.svg" alt="Icono SVG"></button>
+    <button><img src="assets\SideBarIcons\PlantMonitoringIcon.svg" alt="Icono SVG"></button>
+    <button><img src="assets\SideBarIcons\SensorHistoryIcon.svg" alt="Icono SVG"></button>
+    <button><img src="assets\SideBarIcons\PlantsHistoryIcon.svg" alt="Icono SVG"></button>
+    <button (click)="logOut()"><img src="assets\SideBarIcons\LogOutIcon.svg" alt="Icono SVG"></button>
+  </div>
+</div>

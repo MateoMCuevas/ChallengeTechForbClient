@@ -1,0 +1,43 @@
+<div class="plant-container">
+  <div class="card-header">
+    <h1 class="card-title">Plants</h1>
+    <button (click)="addPlant.openModal()" class="btn btn-primary"> + Create a new plant </button>
+    <app-add-plant-modal #addPlant></app-add-plant-modal>
+  </div>
+  <div class="line"></div>
+  <div class="card-content">
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr class="headers">
+            <th>País</th>
+            <th>Nombre de la planta</th>
+            <th>Lecturas</th>
+            <th>Alertas medias</th>
+            <th>Alertas rojas</th>
+            <th style="text-align: center;">Action</th>
+          </tr>
+        </thead>
+        <tbody class="plants">
+          <tr *ngFor="let plant of plants">
+            <td class="country">
+              <img [src]="plant.country.flagUrl" alt="Icono SVG" class="flag">
+              <p>{{ plant.country.name }}</p>
+            </td>
+            <td>{{ plant.name}}</td>
+            <td>{{ plant.okCount }}</td>
+            <td>{{ plant.mediumAlertCount }}</td>
+            <td>{{ plant.redAlertCount }}</td>
+            <td>
+              <button class="btn btn-action" (click)="updatePlantModal.openModal(plant)">
+                <img src="assets\ButtonActionsIcon.svg" alt="Icono SVG">
+              </button>
+              <app-update-plant-modal  #updatePlantModal></app-update-plant-modal>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+</div>

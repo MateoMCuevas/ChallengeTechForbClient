@@ -1,0 +1,24 @@
+<div class="characteristic-container">
+    <div class="characteristic-card" *ngFor="let characteristic of characteristics">
+        <div class="card-content">
+            <h2 class="card-title">{{ characteristic.name }}</h2>
+            <div class="card-data-container">
+                <div class="card-data">
+                    <img src="assets\CharacteristicsIcons\ReadingMiniIcon.svg" alt="Icono SVG" class="reading-icon">
+                    <p>{{ characteristic.okCount }}</p>
+                </div>
+                <div class="card-data">
+                    <img src="assets\CharacteristicsIcons\MediumAlertMiniIcon.svg" alt="Icono SVG" class="reading-icon">
+                    <p>{{ characteristic.mediumAlertCount }}</p>
+                </div>
+
+                <div class="card-data">
+                    <img src="assets\CharacteristicsIcons\RedAlertMiniIcon.svg" alt="Icono SVG" class="reading-icon">
+                    <p>{{ characteristic.redAlertCount }}</p>
+                </div>
+
+            </div>
+        </div>
+        <img class="card-icon" [src]="getIcon(characteristic.name)" alt="Icono SVG">
+    </div>
+</div>

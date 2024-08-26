@@ -1,0 +1,9 @@
+<div class="reading-container">
+    <div class="reading-card" *ngFor="let reading of readings">
+        <div class="card-text">
+        <h2 class="card-name">{{ reading.name }}</h2>
+        <p class="card-count">{{ reading.count }}</p>
+    </div>
+        <img class="card-icon" [src]="getIcon(reading.name)" alt="Icono SVG">
+    </div>
+</div>
